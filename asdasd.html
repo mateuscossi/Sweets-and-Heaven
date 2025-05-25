@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Menu Interativo com Fechar</title>
+  <style>
+
+    /* Botão hambúrguer */
+    .menu-toggle {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      cursor: pointer;
+      width: 30px;
+      height: 25px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      z-index: 1001;
+    }
+
+    .menu-toggle span {
+      display: block;
+      height: 4px;
+      background: #333;
+      border-radius: 2px;
+      transition: all 0.3s ease;
+    }
+
+    /* Ocultar botão hambúrguer quando menu ativo */
+    .menu.active ~ .menu-toggle {
+      display: none;
+    }
+
+    /* Estilo do menu lateral */
+    .menu {
+      position: fixed;
+      top: 0;
+      right: -250px;
+      width: 250px;
+      height: 100%;
+      background: #f5f5f5;
+      box-shadow: -2px 0 5px rgba(0,0,0,0.3);
+      padding-top: 60px;
+      transition: right 0.3s ease;
+      z-index: 1000;
+    }
+
+    .menu.active {
+      right: 0;
+    }
+
+    .menu a {
+      display: block;
+      padding: 15px 20px;
+      text-decoration: none;
+      color: #333;
+      border-bottom: 1px solid #ddd;
+    }
+
+    .menu a:hover {
+      background: #ddd;
+    }
+
+    /* Botão X para fechar */
+    .close-btn {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      font-size: 3em;
+      cursor: pointer;
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Menu lateral -->
+  <nav class="menu" id="menu">
+    <span class="close-btn" id="closeBtn">&times;</span>
+    <a href="#bombons">Bombons</a>
+    <a href="#mini-bombons">Mini Bombons</a>
+    <a href="#bolos-gelados">Bolos Gelados</a>
+    <a href="#bolos-caseiros">Bolos Caseiros</a>
+    <a href="#artesanais">Artesanais</a>
+  </nav>
+
+  <!-- Botão hambúrguer -->
+  <div class="menu-toggle" id="menuToggle">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+
+  <script>
+    const menuToggle = document.getElementById('menuToggle');
+    const menu = document.getElementById('menu');
+    const closeBtn = document.getElementById('closeBtn');
+
+    menuToggle.addEventListener('click', () => {
+      menu.classList.add('active');
+    });
+
+    closeBtn.addEventListener('click', () => {
+      menu.classList.remove('active');
+    });
+  </script>
+
+</body>
+</html>
