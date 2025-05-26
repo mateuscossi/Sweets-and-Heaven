@@ -11,26 +11,22 @@ body {
 }
 
 header {
-    width: 96.3%;
-    height: 140px;
+    width: 100%;
     background-image: linear-gradient(to right bottom,#FAE1E4, white);
     padding: 30px;
+    box-sizing: border-box;
 }
 
 p#para-carda {
-  text-align: center;
+    text-align: center;
 }
 
 h2#cardapio {
-  text-align: center;
-}
-
-p.outros-tipos {
-    display: inline-block;
+    text-align: center;
 }
 
 h1.tit-cabe {
-  margin: 0px;
+    margin: 0px;
 }
 
 header h2 {
@@ -38,10 +34,8 @@ header h2 {
 }
 
 main {
-  padding-left: 170px;
-  padding-top: 20px;
-  padding-right: 170px;
-  padding-bottom: 20px;
+    padding: 20px;
+    box-sizing: border-box;
 }
 
 main h1 {
@@ -49,161 +43,184 @@ main h1 {
     font-size: 2em;
 }
 
+h1.tipo-doce {
+  display: block;
+  margin-right: 98% ;
+}
+
+section.produtos-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start; /* Alinha tudo à esquerda */
+    gap: 20px; /* Espaçamento entre os cards */
+}
+
+section h1.tip-doce {
+    text-align: center;
+    width: 100%;
+}
+
 
 img {
-  display: flex;
-  margin: auto;
+    display: block;
+    margin: auto;
+    max-width: 100%;
+    height: auto;
 }
 
 a.produtos {
-  display: inline-block;
-  text-decoration: none;
-  color: black;
+    text-decoration: none;
+    color: black;
+}
+
+section {
+    padding: 40px 0 0 0;
+    max-width: 1200px;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    box-sizing: border-box;
 }
 
 div.produto {
-    text-decoration: none;
-    text-align: justify;
     background-color: white;
+    flex: 1 1 250px;
     max-width: 350px;
-    min-width: 250px;
     padding: 10px;
+    box-sizing: border-box;
     border-radius: 5px;
-    margin: 5px;
     box-shadow: 0px 0px 8px 5px #00000017;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    transition: all 0.3s ease;
+    margin: 10px;
 }
 
 div.produto:hover {
-  border: 3px solid pink;
-  margin: 0px;
+    border: 3px solid pink;
+    transform: translateY(-5px);
+}
+
+div.produto h3 {
+    margin: 10px 0 5px 0;
+}
+
+div.produto p {
+    margin: 5px 0;
 }
 
 div.preco {
-      margin-top: 10px;
-      background: #f8c8c4;
-      color: white;
-      padding-left: 7px;
-      padding-top: 0px;
-      padding-right: 7px;
-      padding-bottom: 0px;
-      border-radius: 50px;
-      display: inline-block;
-      font-size: 14px;
-
+    margin-top: 10px;
+    background: #f8c8c4;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 50px;
+    font-size: 14px;
 }
 
-    section {
-      padding: 40px;
-      padding-top: 10px;
-      padding-bottom: 0px;
-      max-width: 1200px;
-      margin: 0 auto;
-    }
+footer {
+    padding: 30px;
+    width: 100%;
+    background-image: linear-gradient(to left bottom,#FAE1E4, white);
+    box-sizing: border-box;
+    text-align: center;
+}
 
-    .produtos {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 20px;
-    }
-
-    /*BOTÃO DO MENU*/
-/* Esconde checkbox */
+/* BOTÃO DO MENU */
 #burger {
-  position: absolute;
-  opacity: 0;
-  pointer-events: none;
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
 }
 
-/* Botão hambúrguer no canto direito */
 .burger {
-  position: fixed;
-  top: 20px;
-  right: 20px;
-  width: 40px;
-  height: 30px;
-  background: transparent;
-  cursor: pointer;
-  display: block;
-  z-index: 1001;
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    width: 40px;
+    height: 30px;
+    background: transparent;
+    cursor: pointer;
+    display: block;
+    z-index: 1001;
 }
 
 .burger span {
-  display: block;
-  position: absolute;
-  height: 4px;
-  width: 100%;
-  background: black;
-  border-radius: 9px;
-  opacity: 1;
-  right: 0;
-  transform: rotate(0deg);
-  transition: 0.25s ease-in-out;
+    display: block;
+    position: absolute;
+    height: 4px;
+    width: 100%;
+    background: black;
+    border-radius: 9px;
+    opacity: 1;
+    right: 0;
+    transform: rotate(0deg);
+    transition: 0.25s ease-in-out;
 }
 
 .burger span:nth-of-type(1) {
-  top: 0px;
-  transform-origin: right center;
+    top: 0px;
+    transform-origin: right center;
 }
 
 .burger span:nth-of-type(2) {
-  top: 50%;
-  transform: translateY(-50%);
-  transform-origin: right center;
+    top: 50%;
+    transform: translateY(-50%);
+    transform-origin: right center;
 }
 
 .burger span:nth-of-type(3) {
-  top: 100%;
-  transform-origin: right center;
-  transform: translateY(-100%);
+    top: 100%;
+    transform-origin: right center;
+    transform: translateY(-100%);
 }
 
-/* Animação do X */
 #burger:checked + label span:nth-of-type(1) {
-  transform: rotate(-45deg);
-  top: 0px;
-  right: 5px;
+    transform: rotate(-45deg);
+    top: 0px;
+    right: 5px;
 }
 
 #burger:checked + label span:nth-of-type(2) {
-  width: 0%;
-  opacity: 0;
+    width: 0%;
+    opacity: 0;
 }
 
 #burger:checked + label span:nth-of-type(3) {
-  transform: rotate(45deg);
-  top: 28px;
-  right: 5px;
+    transform: rotate(45deg);
+    top: 28px;
+    right: 5px;
 }
 
-/* Menu lateral */
 .side-menu {
-  position: fixed;
-  top: 0;
-  right: -250px;
-  width: 250px;
-  height: 100%;
-  background-color: #fff0f5; /* cor rosinha clara */
-  box-shadow: -2px 0 5px rgba(0, 0, 0, 0.2);
-  padding-top: 80px;
-  transition: right 0.3s ease;
-  z-index: 1000;
+    position: fixed;
+    top: 0;
+    right: -250px;
+    width: 250px;
+    height: 100%;
+    background-color: #fff0f5;
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.2);
+    padding-top: 80px;
+    transition: right 0.1s ease;
+    z-index: 1000;
 }
 
 .side-menu a {
-  display: block;
-  padding: 15px 20px;
-  text-decoration: none;
-  color: #5c4033;
-  font-weight: bold;
-  border-bottom: 1px solid #f8c8c4;
+    display: block;
+    padding: 15px 20px;
+    text-decoration: none;
+    color: #5c4033;
+    font-weight: bold;
+    border-bottom: 1px solid #f8c8c4;
 }
 
 .side-menu a:hover {
-  background-color: #f8c8c4;
+    background-color: #f8c8c4;
 }
 
-/* Abre menu quando checked */
 #burger:checked ~ .side-menu {
-  right: 0;
+    right: 0;
 }
-
