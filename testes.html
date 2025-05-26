@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sweets nd' Heaven</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Arial', sans-serif;
+      background-color: #fdfafa;
+      color: #333;
+    }
+
+    /* HEADER */
+    header {
+      background: linear-gradient(to right, #ffe4e1, #fff);
+      padding: 20px 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    header h1 {
+      font-family: 'Georgia', serif;
+      font-size: 28px;
+      margin: 0;
+    }
+
+    header nav {
+      display: flex;
+      gap: 20px;
+    }
+
+    header nav a {
+      text-decoration: none;
+      color: #333;
+      font-weight: 500;
+    }
+
+    header nav a:hover {
+      border-bottom: 2px solid #f8c8c4;
+    }
+
+    header .subtitle {
+      font-family: 'Georgia', serif;
+      font-style: italic;
+      font-size: 18px;
+      margin-top: 5px;
+      color: #555;
+    }
+
+    /* MENU HAMBURGUER */
+    #burger {
+      position: absolute;
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .burger {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      width: 40px;
+      height: 30px;
+      background: transparent;
+      cursor: pointer;
+      display: block;
+      z-index: 1001;
+    }
+
+    .burger span {
+      display: block;
+      position: absolute;
+      height: 4px;
+      width: 100%;
+      background: black;
+      border-radius: 9px;
+      opacity: 1;
+      right: 0;
+      transform: rotate(0deg);
+      transition: 0.25s ease-in-out;
+    }
+
+    .burger span:nth-of-type(1) {
+      top: 0px;
+      transform-origin: right center;
+    }
+
+    .burger span:nth-of-type(2) {
+      top: 50%;
+      transform: translateY(-50%);
+      transform-origin: right center;
+    }
+
+    .burger span:nth-of-type(3) {
+      top: 100%;
+      transform-origin: right center;
+      transform: translateY(-100%);
+    }
+
+    #burger:checked + label span:nth-of-type(1) {
+      transform: rotate(-45deg);
+      top: 0px;
+      right: 5px;
+    }
+
+    #burger:checked + label span:nth-of-type(2) {
+      width: 0%;
+      opacity: 0;
+    }
+
+    #burger:checked + label span:nth-of-type(3) {
+      transform: rotate(45deg);
+      top: 28px;
+      right: 5px;
+    }
+
+    .side-menu {
+      position: fixed;
+      top: 0;
+      right: -250px;
+      width: 250px;
+      height: 100%;
+      background-color: #fff0f5;
+      box-shadow: -2px 0 5px rgba(0, 0, 0, 0.2);
+      padding-top: 80px;
+      transition: right 0.3s ease;
+      z-index: 1000;
+    }
+
+    .side-menu a {
+      display: block;
+      padding: 15px 20px;
+      text-decoration: none;
+      color: #5c4033;
+      font-weight: bold;
+      border-bottom: 1px solid #f8c8c4;
+    }
+
+    .side-menu a:hover {
+      background-color: #f8c8c4;
+    }
+
+    #burger:checked ~ .side-menu {
+      right: 0;
+    }
+
+    /* SECTIONS */
+    section {
+      padding: 40px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    section h2 {
+      font-family: 'Georgia', serif;
+      font-size: 26px;
+      border-bottom: 2px solid #f8c8c4;
+      display: inline-block;
+      margin-bottom: 20px;
+    }
+
+    .products {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+
+
+    .card .flavor {
+      background: #fde9ef;
+      padding: 20px;
+      border-radius: 50%;
+      width: 80px;
+      height: 80px;
+      margin: 0 auto 15px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+    }
+
+    .card h3 {
+      margin: 10px 0 10px;
+      font-size: 18px;
+    }
+
+    .card p {
+      font-size: 14px;
+      color: #555;
+    }
+
+    .price {
+      margin-top: 10px;
+      background: #f8c8c4;
+      color: white;
+      padding: 5px 10px;
+      border-radius: 20px;
+      display: inline-block;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Checkbox + Hambúrguer -->
+  <input type="checkbox" id="burger" />
+  <label class="burger" for="burger">
+    <span></span>
+    <span></span>
+    <span></span>
+  </label>
+
+  <!-- Menu lateral -->
+  <nav class="side-menu">
+    <a href="#bombons">Bombons</a>
+    <a href="#mini-bombons">Mini Bombons</a>
+    <a href="#bolos-gelados">Bolos Gelados</a>
+    <a href="#bolos-caseiros">Bolos Caseiros</a>
+    <a href="#artesanais">Artesanais</a>
+  </nav>
+
+  <!-- Cabeçalho -->
+  <header>
+    <div>
+      <h1>Sweets nd' Heaven</h1>
+      <div class="subtitle">Cardápio Celeste<br>Experiências doces e celestiais</div>
+    </div>
+    <nav>
+      <a href="#bombons">Bombons</a>
+      <a href="#mini-bombons">Mini Bombons</a>
+      <a href="#bolos-gelados">Bolos Gelados</a>
+      <a href="#bolos-caseiros">Bolos Caseiros</a>
+      <a href="#artesanais">Artesanais</a>
+    </nav>
+  </header>
+
+  <!-- Seção Bombons -->
+  <section id="bombons">
+    <h2>Bombons Gourmet</h2>
+    <div class="products">
+      <div class="card">
+        <div class="flavor">Chocolate</div>
+        <h3>Pérola de Cacau</h3>
+        <p>Delicioso bombom de chocolate tradicional, com textura aveludada e sabor intenso.</p>
+        <div class="price">R$13,50</div>
+      </div>
+      <div class="card">
+        <div class="flavor">Branco</div>
+        <h3>Brilho de Orion</h3>
+        <p>Bombom de chocolate branco cremoso, com notas suaves e doçura equilibrada.</p>
+        <div class="price">R$13,50</div>
+      </div>
+      <div class="card">
+        <div class="flavor">Limão</div>
+        <h3>Aurora Boreal</h3>
+        <p>Bombom inspirado na clássica torta de limão, com recheio cítrico e refrescante.</p>
+        <div class="price">R$13,50</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Outras seções (exemplo, você pode duplicar e trocar conteúdo) -->
+  <section id="mini-bombons">
+    <h2>Mini Bombons</h2>
+    <div class="products">
+      <div class="card">
+        <div class="flavor">Maracujá</div>
+        <h3>Estrela Tropical</h3>
+        <p>Mini bombom com recheio exótico de maracujá e chocolate ao leite.</p>
+        <div class="price">R$8,50</div>
+      </div>
+      <div class="card">
+        <div class="flavor">Morango</div>
+        <h3>Lua de Morango</h3>
+        <p>Mini bombom recheado com geleia de morango fresco e ganache suave.</p>
+        <div class="price">R$8,50</div>
+      </div>
+    </div>
+  </section>
+
+</body>
+</html>

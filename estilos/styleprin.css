@@ -7,13 +7,18 @@
 body {
     margin: 0px;
     background-color: #FAF9F8;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 header {
-    width: 98%;
+    width: 96.3%;
     height: 140px;
     background-image: linear-gradient(to right bottom,#FAE1E4, white);
-    padding: 10px;
+    padding: 30px;
+}
+
+p#para-carda {
+  text-align: center;
 }
 
 h2#cardapio {
@@ -33,13 +38,17 @@ header h2 {
 }
 
 main {
-  padding: 20px;
+  padding-left: 170px;
+  padding-top: 20px;
+  padding-right: 170px;
+  padding-bottom: 20px;
 }
 
 main h1 {
     text-decoration: underline #ffc0cb;
-    font-size: 1.5em;
+    font-size: 2em;
 }
+
 
 img {
   display: flex;
@@ -56,7 +65,7 @@ div.produto {
     text-decoration: none;
     text-align: justify;
     background-color: white;
-    max-width: 300px;
+    max-width: 350px;
     min-width: 250px;
     padding: 10px;
     border-radius: 5px;
@@ -70,82 +79,131 @@ div.produto:hover {
 }
 
 div.preco {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  text-align: center;
-  background-color: #F4C2C9;
-  max-width:70px;
-  height: 20px;
-  border-radius: 10px;
+      margin-top: 10px;
+      background: #f8c8c4;
+      color: white;
+      padding-left: 7px;
+      padding-top: 0px;
+      padding-right: 7px;
+      padding-bottom: 0px;
+      border-radius: 50px;
+      display: inline-block;
+      font-size: 14px;
+
 }
 
+    section {
+      padding: 40px;
+      padding-top: 10px;
+      padding-bottom: 0px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .produtos {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
 
     /*BOTÃO DO MENU*/
-    .menu-toggle {
-      position: fixed;
-      top: 20px;
-      right: 20px;
-      cursor: pointer;
-      width: 30px;
-      height: 25px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      z-index: 1001;
-    }
+/* Esconde checkbox */
+#burger {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
 
-    .menu-toggle span {
-      display: block;
-      height: 4px;
-      background: #333;
-      border-radius: 2px;
-      transition: all 0.3s ease;
-    }
+/* Botão hambúrguer no canto direito */
+.burger {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  width: 40px;
+  height: 30px;
+  background: transparent;
+  cursor: pointer;
+  display: block;
+  z-index: 1001;
+}
 
-    /* Ocultar botão hambúrguer quando menu ativo */
-    .menu.active ~ .menu-toggle {
-      display: none;
-    }
+.burger span {
+  display: block;
+  position: absolute;
+  height: 4px;
+  width: 100%;
+  background: black;
+  border-radius: 9px;
+  opacity: 1;
+  right: 0;
+  transform: rotate(0deg);
+  transition: 0.25s ease-in-out;
+}
 
-    /* Estilo do menu lateral */
-    .menu {
-      position: fixed;
-      top: 0;
-      right: -250px;
-      width: 250px;
-      height: 100%;
-      background: #f5f5f5;
-      box-shadow: -2px 0 5px rgba(0,0,0,0.3);
-      padding-top: 60px;
-      transition: right 0.3s ease;
-      z-index: 1000;
-    }
+.burger span:nth-of-type(1) {
+  top: 0px;
+  transform-origin: right center;
+}
 
-    .menu.active {
-      right: 0;
-    }
+.burger span:nth-of-type(2) {
+  top: 50%;
+  transform: translateY(-50%);
+  transform-origin: right center;
+}
 
-    .menu a {
-      display: block;
-      padding: 15px 20px;
-      text-decoration: none;
-      color: #333;
-      border-bottom: 1px solid #ddd;
-    }
+.burger span:nth-of-type(3) {
+  top: 100%;
+  transform-origin: right center;
+  transform: translateY(-100%);
+}
 
-    .menu a:hover {
-      background: #ddd;
-    }
+/* Animação do X */
+#burger:checked + label span:nth-of-type(1) {
+  transform: rotate(-45deg);
+  top: 0px;
+  right: 5px;
+}
 
-    /* Botão X para fechar */
-    .close-btn {
-      position: absolute;
-      top: 15px;
-      right: 15px;
-      font-size: 3em;
-      cursor: pointer;
-      color: #333;
-    }
+#burger:checked + label span:nth-of-type(2) {
+  width: 0%;
+  opacity: 0;
+}
 
-    .menu.active ~ .menu-toggle {
-    display: none;
-    }
+#burger:checked + label span:nth-of-type(3) {
+  transform: rotate(45deg);
+  top: 28px;
+  right: 5px;
+}
+
+/* Menu lateral */
+.side-menu {
+  position: fixed;
+  top: 0;
+  right: -250px;
+  width: 250px;
+  height: 100%;
+  background-color: #fff0f5; /* cor rosinha clara */
+  box-shadow: -2px 0 5px rgba(0, 0, 0, 0.2);
+  padding-top: 80px;
+  transition: right 0.3s ease;
+  z-index: 1000;
+}
+
+.side-menu a {
+  display: block;
+  padding: 15px 20px;
+  text-decoration: none;
+  color: #5c4033;
+  font-weight: bold;
+  border-bottom: 1px solid #f8c8c4;
+}
+
+.side-menu a:hover {
+  background-color: #f8c8c4;
+}
+
+/* Abre menu quando checked */
+#burger:checked ~ .side-menu {
+  right: 0;
+}
+
