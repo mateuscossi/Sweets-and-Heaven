@@ -19,10 +19,12 @@ header {
 
 p#para-carda {
     text-align: center;
+    margin-top: 0px;
 }
 
 h2#cardapio {
     text-align: center;
+    margin-bottom: 10px;
 }
 
 h1.tit-cabe {
@@ -74,7 +76,7 @@ a.produtos {
 }
 
 section {
-    padding: 40px 0 0 0;
+    padding: 20px 0 0 0;
     max-width: 1200px;
     margin: auto;
     display: flex;
@@ -127,6 +129,24 @@ footer {
     background-image: linear-gradient(to left bottom,#FAE1E4, white);
     box-sizing: border-box;
     text-align: center;
+}
+
+a.social {
+  text-decoration: none;
+  color: #43001d;
+}
+
+a.social:hover {
+  text-decoration: underline;
+  color: #ff2583;
+}
+
+#zap::before {
+  content: url('../imagens/logo-zap.png');
+}
+
+#insta::before {
+  content: url('../imagens/logo-insta.png');
 }
 
 /* BOTÃO DO MENU */
