@@ -127,7 +127,7 @@ div.preco {
 footer {
     padding: 30px;
     width: 100%;
-    background-image: linear-gradient(to left bottom,#FAE1E4, white);
+    background-image: linear-gradient(to left top,#FAE1E4, white);
     box-sizing: border-box;
     text-align: center;
 }
