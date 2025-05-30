@@ -36,6 +36,8 @@ header h2 {
 }
 
 main {
+    margin: auto;
+    max-width: 1000px;
     padding: 20px;
     box-sizing: border-box;
 }
@@ -44,6 +46,7 @@ main h1 {
     text-decoration: underline #ffc0cb;
     font-size: 2em;
     text-align: center;
+    margin-bottom: 20px;
 }
 
 div.produto {
@@ -57,27 +60,18 @@ img {
     height: auto;
 }
 
-
-div #encomendar {
-    width: 300px;
-    height: 100px;
+div#preco {
+    width: 130px;
+    height: 50px;
     background-color: pink;
     font-size: 2em;
-    border: #daa5ae solid 5px;
-    border-radius: 10px;
-    padding: 5px 4px 5px 5px;
-
+    padding: 0px;
+    border-radius: 10px ;
 }
 
-div #encomendar:hover {
-    background-color: #daa5ae;
-    border: #6d5357 solid 5px;
+p#text-preco {
+    text-align: center;
 }
-
-a #red-encomendar {
-    text-decoration: none;
-}
-
 
 footer {
     padding: 30px;
@@ -104,6 +98,92 @@ a.social:hover {
 #insta::before {
   content: url('../imagens/logo-insta.png');
 }
+
+div.produto {
+    display: flex;
+    align-items: flex-start;
+    margin: 40px auto;
+    flex-wrap: wrap; 
+}
+
+div.produto img {
+    max-width: 350px;
+    height: auto;
+}
+
+div.descricao {
+    max-width: 600px;
+}
+
+div.descricao h2 {
+    margin-top: 0;
+    font-size: 2em;
+}
+
+div.descricao p {
+    line-height: 1.5;
+    text-align: justify;
+}
+
+div.descricao a button.slice {
+    margin-top: 20px;
+}
+
+div.produto {
+    display: flex;
+    align-items: flex-start;
+    gap: 30px;
+    margin: 40px;
+    flex-wrap: wrap;
+}
+
+div.produto img {
+    max-width: 350px;
+    width: 100%;
+    height: auto;
+    margin-left: 0;
+    flex-shrink: 0;
+}
+
+div.descricao {
+    max-width: 600px;
+    flex: 1;
+}
+
+div.descricao h2 {
+    margin-top: 0;
+}
+
+div.descricao p {
+    line-height: 1.5;
+    text-align: justify;
+}
+
+div.descricao a button.slice {
+    margin-top: 20px;
+}
+
+/* --- RESPONSIVO --- */
+@media (max-width: 768px) {
+    div.produto {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    div.produto img {
+        max-width: 250px; /* reduz o tamanho da imagem no celular */
+    }
+
+    div.descricao {
+        text-align: center;
+    }
+
+    div.descricao p {
+        text-align: justify;
+        padding: 0 10px;
+    }
+}
+
 
 /* BOTÃO DO MENU */
 #burger {
@@ -199,4 +279,61 @@ a.social:hover {
 
 #burger:checked ~ .side-menu {
     right: 0;
+}
+
+
+/*BOTÃO DE ENCOMENDAR*/
+/* From Uiverse.io by nikk7007 */ 
+.slice {
+  --c1: #202020;
+  --c2: #ffc0cb;
+  --size-letter: 32px;
+  padding: 0.5em 1em;
+  font-size: var(--size-letter);
+
+  background-color: transparent;
+  border: calc(var(--size-letter) / 6) solid var(--c2);
+  border-radius: 0.2em;
+  cursor: pointer;
+
+  overflow: hidden;
+  position: relative;
+  transition: 300ms cubic-bezier(0.83, 0, 0.17, 1);
+
+  & > .text {
+    font-weight: 700;
+    color: var(--c2);
+    position: relative;
+    z-index: 1;
+    transition: color 100ms cubic-bezier(0.83, 0, 0.17, 1);
+  }
+}
+
+.slice::after {
+  content: "";
+
+  width: 0;
+  height: calc(300% + 1em);
+
+  position: absolute;
+  translate: -50% -50%;
+  inset: 50%;
+  rotate: 30deg;
+
+  background-color: var(--c2);
+  transition: 300ms cubic-bezier(0.83, 0, 0.17, 1);
+}
+
+.slice:hover {
+  & > .text {
+    color: var(--c1);
+  }
+  &::after {
+    width: calc(120% + 1em);
+  }
+}
+
+.slice:active {
+  scale: 0.98;
+  filter: brightness(0.9);
 }
